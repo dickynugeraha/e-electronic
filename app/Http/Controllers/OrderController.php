@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Cart;
+use App\Models\Shipping;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -44,24 +45,42 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $productIds = [];
+
         $userId = Session::get("userId");
-        $cart = Cart::where("user_id", $userId);
-        $products = $cart->first()->products;
+
+
+        $totalAmount = explode(" ", $request->total_amount)[0];
+        $shipping = Shipping::find($request->shipping);
+        $totalAmount += $shipping->price;
+
         $order = Order::create([
             "user_id" => $userId,
-            "total_amount" => $request->total_amount,
-            "shipping_id" => $request->shipping_id,
+            "total_amount" => $totalAmount,
+            "shipping_id" => $request->shipping,
         ]);
+
+        $cart = Cart::where("user_id", $userId);
+        $products = $cart->with("products")->first()->products;
         foreach ($products as $product) {
-            array_push($productIds, $product->id);
+            $order->products()->attach([
+                $product->id => [
+                    "quantity" => $product->pivot->quantity,
+                    "price_per_item" => $product->pivot->price_per_item,
+                    "description" => $product->pivot->description,
+                ],
+            ]);
         }
-        $order->products()->attach($productIds);
+
 
         if ($cart) {
             $cart->delete();
         }
 
-        return view("/order/{{$order->id}}/{{$userId}}");
+        return $order;
+
+        // return view("/order/{{$order->id}}/{{$userId}}");
+
+        return redirect()->to("order/" . $order->id . "/" . $userId);
     }
 
     /**
@@ -83,7 +102,7 @@ class OrderController extends Controller
             return view("order.detail", compact("order_items"));
         }
         $order_items = count($order->products) > 0 ? $order->products : [];
-        return view("order.detail", compact("order_items"));
+        return $order_items;
     }
 
     /**

@@ -76,11 +76,11 @@
                     <form action="/order" method="post">
                         
                         <div class="mb-2">
-                            <label for="shipping" class="form-label" style="color: grey; font-style: italic">Shipping</label>
+                            <label for="shipping" class="form-label" style="color: grey; font-style: italic">Shipping to</label>
                             <select name="shipping" id="shipping" class="form-select" aria-label="Default select">
                                 <option selected>Choose one</option>
                                 @foreach ($shippings as $shipping)
-                                    <option data-bs-target="{{$shipping->price}}" value="{{$shipping->id}}">{{$shipping->area}} (Rp. {{$shipping->price}}) - {{$shipping->estimated_arrival}} days</option>
+                                    <option value="{{$shipping->id}}">{{$shipping->area}} (Rp. {{$shipping->price}}) - {{$shipping->estimated_arrival}} days</option>
                                 @endforeach
                             </select>
                         </div>
@@ -110,12 +110,16 @@
 @endsection
 @section('add_javascript')
 <script>
-    shipping = document.getElementById("shipping");
+    const shipping = document.getElementById("shipping");
+    const totalAmount = document.getElementById("total_amount");
+    let isShippingChange = false;
 
     shipping.addEventListener("change", function(evt){
-        let value = evt.target;
+        if (!isShippingChange){
+            totalAmount.value += " + shipping cost";
+            isShippingChange = true;
+        }
 
-        console.log(value);
     });
 </script>
 @endsection

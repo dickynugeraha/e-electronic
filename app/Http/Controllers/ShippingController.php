@@ -35,11 +35,6 @@ class ShippingController extends Controller
      */
     public function store(Request $request)
     {
-        Shipping::create([
-            "area" => "Jakarta",
-            "price" => 30000,
-            "estimated_arrival" => 3
-        ]);
     }
 
     /**
