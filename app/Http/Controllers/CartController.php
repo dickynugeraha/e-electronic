@@ -22,13 +22,13 @@ class CartController extends Controller
         $cart = Cart::where("user_id", "=", $userId)
             ->with("products")
             ->first();
+        $shippings = Shipping::all();
 
         if ($cart === null) {
             $cart_items = [];
-            return view("cart.index", compact("cart_items"));
+            return view("cart.index", compact("cart_items", "shippings"));
         }
         $cart_items = count($cart->products) > 0 ? $cart->products : [];
-        $shippings = Shipping::all();
         return view("cart.index", compact("cart_items", "shippings"));
     }
 

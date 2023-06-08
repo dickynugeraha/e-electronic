@@ -1,4 +1,4 @@
-@extends('layouts.user_view', ["title" => "Detail $product->title"])
+@extends('layouts.user_view', ["title" => "$product->title"])
 @section('content_user')
 
   <div class="d-flex flex-column">

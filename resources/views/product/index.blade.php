@@ -19,7 +19,7 @@
     @foreach ($products as $product)
     <div class="card" style="width: 15rem;">
       <div class="card-header fs-4">
-        {{ucfirst($product->title)}}
+        <h5>{{ucfirst($product->title)}}</h5>
       </div>
       <img src="{{ $product->image_url }}" class="card-img-top" alt="...">
       <ul class="list-group list-group-flush">
@@ -28,11 +28,7 @@
         <li class="list-group-item">{{ucfirst($descriptions[0])}}..</li>
         <li class="list-group-item">
           <div class="text-end">
-          {{-- <div class="d-flex justify-content-between"> --}}
-            {{-- <a class="btn btn-md btn-warning" data-toggle="modal" data-target="myModal{{$product->id}}" style="text-decoration:none"><i class="fa fa-info-circle"></i> Detail</a> --}}
-            {{-- <button id="detail_product" data-href="product/{{$product->id}}"class="btn btn-xs" role="button">Details</button> --}}
             <a href="/product/{{$product->id}}" style="text-decoration:none"><i class="fa fa-info-circle"></i> Detail</a>
-            {{-- <a href="" style="text-decoration:none"><i class="fa fa-shopping-cart"></i> Add to cart</a> --}}
           </div>
         </li>
       </ul>
@@ -54,16 +50,4 @@
       </div>
   </div>
     @endforeach
-@endsection
-@section('add_javascript')
-<script>
-  $(document).ready(function(){
-      $("#detail_product").click(function(){
-         var dataURL = $(this).attr( "data-href" )
-          $('.modal-body').load(dataURL,function(){
-      $('#myModal').modal({show:true});
-  });
-      });
-  });
-</script>
 @endsection

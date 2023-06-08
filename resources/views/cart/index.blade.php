@@ -69,9 +69,10 @@
                 <h5 style="font-size: 1.3rem;color: #609966; font-weight: bold; font-style: italic">Rp. {{$totalAmount}}</h5>
             </div>
         </div>
+       
         <div class="col-md-4 pt-4 pt-md-0 px-2">
             <div class="card">
-                <div class="card-header"><h5>DETAIL ORDER</h5></div>
+                <div class="card-header"><h5>ORDER</h5></div>
                 <div class="card-body">
                     <form action="/order" method="post">
                         
@@ -97,9 +98,15 @@
                             <label for="total_amount" class="form-label" style="color: grey; font-style: italic">Total Amount</label>
                             <input type="text" id="total_amount" class="form-control" name="total_amount" readonly value="{{$totalAmount}}">
                         </div>
-                        <div class="mb-2">
-                            <button class="btn btn-md btn-success" type="submit" style="width:100%">Order</button>
-                        </div>
+                        @if (count($cart_items) > 0)
+                            <div class="mb-2">
+                                <button class="btn btn-md btn-success" type="submit" style="width:100%">Order</button>
+                            </div>
+                            @else
+                            <p style="color: red; font-style: italic">Cannot order.. please add product to cart</p>
+
+                        @endif
+                       
                     </form>
                 </div>
             </div>

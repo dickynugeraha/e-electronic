@@ -48,5 +48,6 @@ Route::get("cart/{id}/delete", [CartController::class, "destroy"]);
 Route::post("cart/update", [CartController::class, "update"]);
 // order
 Route::post("order", [OrderController::class, "store"]);
-Route::get("order", [OrderController::class, "index"]);
-Route::get("order/{order_id}/{user_id}", [OrderController::class, "show"]);
+Route::get("orders", [OrderController::class, "index"]);
+Route::get("order/{order_id}", [OrderController::class, "show"]);
+Route::post("order/upload_foto_payment", [OrderController::class, "uploadProofPayment"]);

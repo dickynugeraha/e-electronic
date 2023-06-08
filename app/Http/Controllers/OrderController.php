@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Cart;
 use App\Models\Shipping;
+use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -18,12 +19,13 @@ class OrderController extends Controller
     public function index()
     {
         $userId = Session::get("userId");
-        $orders = Order::where("user_id", $userId)->with("products")->get();
+        $orders = Order::where("user_id", "=", $userId)->with("products")->get();
 
         if (count($orders) === 0) {
             $orders = [];
             return view("order.index", compact("orders"));
         }
+
         return view("order.index", compact("orders"));
     }
 
@@ -44,8 +46,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $productIds = [];
-
         $userId = Session::get("userId");
 
 
@@ -71,16 +71,38 @@ class OrderController extends Controller
             ]);
         }
 
-
         if ($cart) {
             $cart->delete();
         }
 
-        return $order;
+        return redirect()->to("order/" . $order->id);
+    }
 
-        // return view("/order/{{$order->id}}/{{$userId}}");
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
-        return redirect()->to("order/" . $order->id . "/" . $userId);
+    public function uploadProofPayment(Request $request)
+    {
+        $request->validate([
+            'payment_photo' => 'required|mimes:png,jpg,jpeg|max:2048'
+        ]);
+        $order = Order::find($request->order_id);
+
+
+        $image = $request->file('payment_photo');
+        $image_name = time() . "." . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/payment_photo');
+        $image->move($destinationPath, $image_name);
+
+        $order->payment_photo = $image_name;
+        $order->status = "checking";
+        $order->save();
+
+        return redirect()->back()->with('alert', 'Successfully upload payment photo!');
     }
 
     /**
@@ -89,20 +111,17 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show($order_id, $user_id)
+    public function show($order_id)
     {
-        $order_items = [];
-        $order = Order::find($order_id)
-            ->where("user_id", "=", $user_id)
+        $order = Order::where("id", "=", $order_id)
             ->with("products")
             ->first();
 
-        if ($order === null) {
-            $order_items = [];
-            return view("order.detail", compact("order_items"));
+        if ($order === null || count($order->products) == 0) {
+            $order = [];
+            return view("order.detail", compact("order"));
         }
-        $order_items = count($order->products) > 0 ? $order->products : [];
-        return $order_items;
+        return view("order.detail", compact("order"));
     }
 
     /**
