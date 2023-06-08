@@ -20,7 +20,7 @@
         alert(msg);
       }
     </script>
-    <div class="container" style="margin-top: 8rem;">
+    <div class="container" style="margin-top: 2rem;">
       <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-login">
@@ -54,7 +54,7 @@
                   </div>
                 
                 </form>
-                <form id="register-form" action="/register" method="post" role="form" style="display: none;">
+                <form id="register-form" action="/register" method="post" role="form" enctype="multipart/form-data" style="display: none;">
                   <div class="form-group">
                     <input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Name" required>
                   </div>
@@ -68,13 +68,17 @@
                     <input type="number" name="age" id="age" tabindex="1" class="form-control" placeholder="Age" required>
                   </div>
                   <div class="form-group">
-                    <input type="number" name="id_card" id="id_card" tabindex="1" class="form-control" placeholder="ID Card Number " required>
+                    <input type="number" name="id_card_number" id="id_card_number" tabindex="1" class="form-control" placeholder="ID Card Number " required>
+                  </div>
+                  <div class="form-group">
+                    <label for="profile_photo" style="font-weight:normal">Photo profile</label>
+                    <input type="file" name="profile_photo" id="profile_photo" tabindex="1" class="form-control"required>
                   </div>
                   <div class="form-group">
                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
                   </div>
                   <div class="form-group">
-                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" required>
+                    <input type="password" name="passwordConfirm" id="passwordConfirm" tabindex="2" class="form-control" placeholder="Confirm Password" required>
                   </div>
                   <div class="form-group">
                     <div class="row">

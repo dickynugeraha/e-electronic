@@ -35,10 +35,11 @@ Route::get('/logout', function () {
         return redirect("/login");
     }
 });
-Route::post("/login-user", [AuthController::class, "userLogin"]);
-Route::get("user-register", [AuthController::class, "userRegister"]);
+Route::post("login-user", [AuthController::class, "userLogin"]);
+Route::post("register", [AuthController::class, "userRegister"]);
 //profile
 Route::get("profile", [AuthController::class, "profile"]);
+Route::post("profile/update", [AuthController::class, "update"]);
 // product
 Route::apiResource("/product", ProductController::class);
 // cart

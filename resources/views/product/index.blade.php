@@ -15,24 +15,28 @@
           </select>
         </div>
       </form>
-      </div>
-    @foreach ($products as $product)
-    <div class="card" style="width: 15rem;">
-      <div class="card-header fs-4">
-        <h5>{{ucfirst($product->title)}}</h5>
-      </div>
-      <img src="{{ $product->image_url }}" class="card-img-top" alt="...">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><b>Rp. {{$product->price}}</b></li>
-        <?php $descriptions = explode("|", $product->description) ?>
-        <li class="list-group-item">{{ucfirst($descriptions[0])}}..</li>
-        <li class="list-group-item">
-          <div class="text-end">
-            <a href="/product/{{$product->id}}" style="text-decoration:none"><i class="fa fa-info-circle"></i> Detail</a>
-          </div>
-        </li>
-      </ul>
     </div>
+    <div class="row">
+    @foreach ($products as $product)
+    <div class="col-6 col-lg-3 col-md-4 col-sm-6 mt-3 mt-lg-0">
+      <div class="card">
+        <div class="card-header fs-4">
+          <h5>{{ucfirst($product->title)}}</h5>
+        </div>
+        <img src="{{ $product->image_url }}" class="card-img-top" alt="...">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><b>Rp. {{$product->price}}</b></li>
+          <?php $descriptions = explode("|", $product->description) ?>
+          <li class="list-group-item">{{ucfirst($descriptions[0])}}..</li>
+          <li class="list-group-item">
+            <div class="text-end">
+              <a href="/product/{{$product->id}}" style="text-decoration:none"><i class="fa fa-info-circle"></i> Detail</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
     <!-- Modal Detail-->
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog">
@@ -48,6 +52,10 @@
               </div>
           </div>
       </div>
-  </div>
+    </div>
     @endforeach
+
+
+  </div>
+
 @endsection

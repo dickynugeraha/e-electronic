@@ -92,10 +92,9 @@ class OrderController extends Controller
         ]);
         $order = Order::find($request->order_id);
 
-
         $image = $request->file('payment_photo');
         $image_name = time() . "." . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/payment_photo');
+        $destinationPath = public_path('/uploads/payment_photo');
         $image->move($destinationPath, $image_name);
 
         $order->payment_photo = $image_name;

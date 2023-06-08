@@ -49,12 +49,10 @@
                             </div>
                             @else
                             <div class="col-12">
-                                <img src="/payment_photo/{{ $order->payment_photo }}" alt="payment_photo" srcset="" style="width: 15rem">
+                                <img src="/uploads/payment_photo/{{ $order->payment_photo }}" alt="payment_photo" srcset="" style="width: 15rem">
                             </div>
                             @endif
                         </div>
-                        
-                       
                     </div>
                     <div class="d-flex justify-content-between">
                         <p class="fs-4">Total Amount</p>

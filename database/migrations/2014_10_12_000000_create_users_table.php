@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("address");
             $table->string("age");
             $table->string("id_card_number");
+            $table->string("profile_photo");
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean("is_admin")->default(0);
