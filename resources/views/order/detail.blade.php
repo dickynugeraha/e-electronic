@@ -48,15 +48,15 @@
                                 {{-- <p style="color: red; font-style:italic" class="text-start">No photo, please make payment!</p> --}}
                             </div>
                             @else
-                            <div class="col-12">
-                                <img src="/uploads/payment_photo/{{ $order->payment_photo }}" alt="payment_photo" srcset="" style="width: 15rem">
+                            <div class="col-12 text-center">
+                                <img src="/uploads/payment_photo/{{ $order->payment_photo }}" alt="payment_photo" srcset="" style="width: 12rem">
                             </div>
                             @endif
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
                         <p class="fs-4">Total Amount</p>
-                        <p class="fs-5" style="color:#609966; font-style:italic">Rp. {{$order->total_amount}}</p>
+                        <p class="fs-5" style="color:#609966; font-style:italic">Rp. {{number_format($order->total_amount,0,',','.')}}</p>
                     </div>
                 </div>
                 <hr>
@@ -64,14 +64,14 @@
                     @foreach ($order->products as $product)
                         <li class="row">
                             <div class="col-md-4 text-center">
-                                <img style="width:8rem; height:8rem; border-radius:50%" src="{{ $product->image_url }}" alt="" srcset="">
+                                <img style="width:8rem; height:8rem; border-radius:50%" src="/uploads/product_photo/{{ $product->product_photo }}" alt="" srcset="">
                             </div>
                             <div class="col-md-8 px-4">
                                 <p class="fs-4" style="margin-bottom: 0">{{ $product->title }}</p>
                                 <?php $descriptions = explode("|", $product->description) ?>
                                 <p style="color:grey" class="fs-6">{{ucfirst($descriptions[0])}}..</p>
                                 <div class="d-flex justify-content-between">
-                                    <p style="color:#609966; font-style:italic" class="fs-5">Rp. {{$product->price}}</p>
+                                    <p style="color:#609966; font-style:italic" class="fs-5">Rp. {{number_format($product->price,0,',','.')}}</p>
                                     <p class="fs-5" style="color:grey">x {{ $product->pivot->quantity }}</p>
                                 </div>
                             </li>

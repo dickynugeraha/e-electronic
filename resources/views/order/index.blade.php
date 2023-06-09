@@ -2,6 +2,10 @@
 @section("content_user")
     <h3 class="text-center mb-3">ORDERS</h3>
 
+    @if (count($orders) === 0)
+        <p class="fs-5" style="color:red; font-style:italic;">No orders yet..</p>
+    @endif
+
     <div class="row justify-content-center">
       @foreach ($orders as $order)
         <?php $productsOrders = count($order->products); ?>

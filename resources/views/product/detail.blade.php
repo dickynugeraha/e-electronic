@@ -3,7 +3,7 @@
 
   <div class="d-flex flex-column">
     
-    <h1 class="mb-2">{{ucfirst($product->title)}} <span style="font-size: 1.5rem; color: #5D9C59; ">(Rp. {{number_format($product->price,2,',','.')}})</span></h1>     
+    <h1 class="mb-2">{{ucfirst($product->title)}} <span style="font-size: 1.5rem; color: #5D9C59; ">(Rp. {{number_format($product->price,0,',','.')}})</span></h1>     
     <script>
       var msg = '{{Session::get('alert')}}';
       var exist = '{{Session::has('alert')}}';
@@ -41,7 +41,7 @@
                   </form>
                 </div>
             </div>
-            <div class="col-md-7 text-center"> <img src="{{$product->image_url}}" width="60%" height="80%"> </div>
+            <div class="col-md-7 text-center"> <img src="/uploads/product_photo/{{ $product->product_photo }}" width="60%" height="80%"> </div>
         </div>
     </div>
 </div>

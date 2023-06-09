@@ -14,7 +14,9 @@ class ShippingController extends Controller
      */
     public function index()
     {
-        //
+        $shippings = Shipping::all();
+
+        return view("shipping.index", compact("shippings"));
     }
 
     /**
@@ -35,6 +37,13 @@ class ShippingController extends Controller
      */
     public function store(Request $request)
     {
+        Shipping::create([
+            "area" => $request->area,
+            "price" => $request->price,
+            "estimated_arrival" => $request->estimated_arrival
+        ]);
+
+        return redirect()->back()->with('alert', 'Successfully add new shipping!');
     }
 
     /**

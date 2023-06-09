@@ -27,6 +27,19 @@ class ProductController extends Controller
         return view("product.index", compact("products"));
     }
 
+    public function index_admin()
+    {
+        $isAdmin = Session::get("isAdmin");
+
+        if (!$isAdmin) {
+            return redirect("/login");
+        }
+
+        $products = Product::all();
+
+        return view("product.products_admin", compact("products"));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -53,7 +66,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = $request->file('product_photo');
+        $image_name = time() . "." . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/uploads/product_photo');
+        $image->move($destinationPath, $image_name);
+
+        Product::create([
+            "title" => $request->title,
+            "type" => $request->type,
+            "description" => $request->description,
+            "price" => $request->price,
+            "product_photo" => $image_name,
+        ]);
+
+        return redirect()->back()->with('alert', 'Successfully add new product!');
     }
 
     /**

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger("order_id")->unsigned();
             $table->bigInteger("product_id")->unsigned();
             $table->integer("quantity");
-            $table->double("price_per_item", 8, 2);
+            $table->double("price_per_item", 12, 2);
             $table->string("description");
             $table->foreign("order_id")->references("id")->on("orders")->onDelete("cascade");
             $table->foreign("product_id")->references("id")->on("products")->onDelete(("cascade"));

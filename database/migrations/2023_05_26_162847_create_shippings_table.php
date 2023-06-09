@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('shippings', function (Blueprint $table) {
             $table->id();
             $table->string("area");
-            $table->double("price", 8, 2);
+            $table->double("price", 12, 2);
             $table->integer("estimated_arrival");
             $table->timestamps();
         });

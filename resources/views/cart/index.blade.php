@@ -14,11 +14,11 @@
             @foreach ($cart_items as $product)
                 <div class="card-body row py-3">
                     <div class="col-lg-2 text-center">
-                        <img src="{{$product->image_url}}" style="width: 8rem; height: 8rem; border-radius: 50%;" alt="" srcset="">
+                        <img src="/uploads/product_photo/{{$product->product_photo}}" style="width: 8rem; height: 8rem; border-radius: 50%;" alt="" srcset="">
                     </div>
                     <div class="col-lg-7 ps-lg-5 pt-3 pt-lg-0">
                         <p class="mb-1"><b>Title: </b> {{$product->title}}</p>
-                        <p class="mb-1"><b>Price: </b> Rp. {{$product->price}}</p>
+                        <p class="mb-1"><b>Price: </b> Rp. {{number_format($product->price,0,',','.')}}</p>
                         <p class="mb-1"><b>Qty: </b> {{$product->pivot->quantity}} pcs</p>
                         <p class="mb-4"><b>Description: </b> {{$product->pivot->description}}</p>
                         <div class="d-flex justify-content-start">
@@ -66,7 +66,7 @@
             @endforeach
             <div class="d-flex justify-content-between p-3">
                 <h5>Total Amount</h5>
-                <h5 style="font-size: 1.3rem;color: #609966; font-weight: bold; font-style: italic">Rp. {{$totalAmount}}</h5>
+                <h5 style="font-size: 1.3rem;color: #609966; font-weight: bold; font-style: italic">Rp. {{number_format($totalAmount,0,',','.')}}</h5>
             </div>
         </div>
        

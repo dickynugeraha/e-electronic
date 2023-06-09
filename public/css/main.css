@@ -29,3 +29,8 @@ h6 {
     transform: scale(1.1);
     cursor: pointer;
 }
+
+label {
+    color: grey;
+    font-style: italic;
+}

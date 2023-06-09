@@ -19,13 +19,13 @@
     <div class="row">
     @foreach ($products as $product)
     <div class="col-6 col-lg-3 col-md-4 col-sm-6 mt-3 mt-lg-0">
-      <div class="card">
+      <div class="card" >
         <div class="card-header fs-4">
           <h5>{{ucfirst($product->title)}}</h5>
         </div>
-        <img src="{{ $product->image_url }}" class="card-img-top" alt="...">
+        <img src="/uploads/product_photo/{{ $product->product_photo }}" style="height: 300px" alt="...">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><b>Rp. {{$product->price}}</b></li>
+          <li class="list-group-item"><b>Rp. {{number_format($product->price,0,',','.')}}</b></li>
           <?php $descriptions = explode("|", $product->description) ?>
           <li class="list-group-item">{{ucfirst($descriptions[0])}}..</li>
           <li class="list-group-item">

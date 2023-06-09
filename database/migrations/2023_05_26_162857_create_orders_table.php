@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("status")->default("process");
             $table->string("payment_photo")->nullable();
-            $table->double("total_amount", 8, 2);
+            $table->double("total_amount", 12, 2);
             $table->bigInteger("user_id")->unsigned();
             $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
             $table->bigInteger("shipping_id")->unsigned();

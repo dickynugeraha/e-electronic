@@ -60,6 +60,11 @@ class AuthController extends Controller
     {
         $user = User::where("email", $input->email)->first();
 
+        if ($user->is_admin) {
+            Session::put("isAdmin", true);
+            return redirect("/admin/products");
+        }
+
         if ($user === null) {
             return redirect()->back()->with('alert', 'User not found, please registration!');
         }

@@ -8,5 +8,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/css/main.css">
-<script src="/js/jquery-3.7.0.min.js"></script>
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> --}}
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/dashboard.rtl.css">
+<link rel="stylesheet" href="/css/cdn.datatables.net_1.13.4_css_jquery.dataTables.min.css">
+<style>
+  .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+  }
+
+  @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+      }
+  }
+</style>
+<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/" />
+<script src="/js/jquery-3.5.1.js"></script>
+<script src="/js/cdn.datatables.net_1.13.4_js_jquery.dataTables.min.js"></script>

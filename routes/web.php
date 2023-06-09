@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShippingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -30,8 +31,10 @@ Route::get('/login', function () {
 });
 Route::get('/logout', function () {
     $userId = Session::get("userId");
-    if ($userId) {
+    $admin = Session::get("isAdmin");
+    if ($userId || $admin) {
         Session::forget("userId");
+        Session::forget("isAdmin");
         return redirect("/login");
     }
 });
@@ -52,3 +55,7 @@ Route::post("order", [OrderController::class, "store"]);
 Route::get("orders", [OrderController::class, "index"]);
 Route::get("order/{order_id}", [OrderController::class, "show"]);
 Route::post("order/upload_foto_payment", [OrderController::class, "uploadProofPayment"]);
+// admin
+Route::get("admin/products", [ProductController::class, "index_admin"]);
+Route::apiResource("shipping", ShippingController::class);
+Route::get("admin/shippings", [ShippingController::class, "index"]);

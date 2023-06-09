@@ -11,17 +11,17 @@
     <div class="row justify-content-center">
       <div class="col-md-5">
         <div class="card">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="card-img-top"/>
+          <img src="/uploads/profile_photo/{{$user->profile_photo}}" class="card-img-top"/>
           <div class="card-body px-0" style="color:grey; font-style:italic">
-            <p class="fs-5 px-3">{{ucfirst($user->name)}}</p>
+            <p class="fs-6 px-3">{{ucfirst($user->name)}}</p>
             <hr>
-            <p class="fs-5 px-3">{{$user->email}}</p>
+            <p class="fs-6 px-3">{{$user->email}}</p>
             <hr>
-            <p class="fs-5 px-3">{{$user->age}} y.o</p>
+            <p class="fs-6 px-3">{{$user->age}} y.o</p>
             <hr>
-            <p class="fs-5 px-3">{{ucfirst($user->address)}}</p>
+            <p class="fs-6 px-3">{{ucfirst($user->address)}}</p>
             <hr>
-            <p class="fs-5 px-3">{{$user->id_card_number}} (KTP)</p>
+            <p class="fs-6 px-3">{{$user->id_card_number}} (KTP)</p>
           </div>
           <div class="card-footer text-end">
             <a data-bs-toggle="modal" data-bs-target="#modalEditProfile" href="#" class="stretched-link text-decoration-none"><p class="fs-6 m-0 p-0"><i class="fa fa-pencil"></i> Edit</p></a>
