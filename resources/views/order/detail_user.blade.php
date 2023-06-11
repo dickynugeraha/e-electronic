@@ -5,7 +5,7 @@
      <!-- Detail Order -->
      <div class="row justify-content-center">
       <div class="card px-0 mb-5 col-lg-9" >
-        <div class="card-header"><h5>Detail Order</h5></div>
+        <div class="card-header"><h5>Order in {{str_replace("_"," ", $order->status);}}</h5></div>
       <div class="card-body">
         <div class="row" >
           <div class="col-lg-3">

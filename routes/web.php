@@ -64,3 +64,4 @@ Route::get("admin/customers", [AuthController::class, "customers"]);
 Route::get("user/{id}/delete", [AuthController::class, "destroy"]);
 Route::get("orders/{status}", [OrderController::class, "showByStatus"]);
 Route::get("order/{orderId}/{userId}", [OrderController::class, "showOrderByUser"]);
+Route::post("order/update-status", [OrderController::class, "updateStatus"]);

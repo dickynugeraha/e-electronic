@@ -139,6 +139,13 @@ class OrderController extends Controller
         return view("order.detail_user", compact("order"));
     }
 
+    public function updateStatus(Request $request)
+    {
+        Order::where("id", "=", $request->order_id)->update(["status" => $request->status]);
+
+        return redirect()->back()->with("alert", "Successfully updated status!");
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
