@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -27,7 +30,7 @@ class ProductController extends Controller
         return view("product.index", compact("products"));
     }
 
-    public function index_admin()
+    public function indexAdmin()
     {
         $isAdmin = Session::get("isAdmin");
 
@@ -47,15 +50,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        // $product = Product::create([
-        //     "title" => "spatula",
-        //     "type" => "kitchen",
-        //     "price" => 26000,
-        //     "description" => "very comfortable to hold",
-        //     "image_url" => "https://m.media-amazon.com/images/I/815hjhyEdCL._AC_UF1000,1000_QL80_.jpg",
-        // ]);
-
-        // dd($product);
     }
 
     /**
@@ -122,8 +116,17 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($prodId)
     {
-        //
+        $product = Product::where("id", "=", $prodId);
+
+        $fileName = $product->first()->product_photo;
+
+        $image = public_path('uploads/product_photo/') . $fileName;
+
+        if (file_exists($image)) @unlink($image);
+
+        $product->delete();
+        return redirect()->back()->with('alert', 'Successfully delete product!');
     }
 }

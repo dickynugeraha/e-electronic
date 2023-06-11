@@ -86,7 +86,7 @@ class AuthController extends Controller
 
         $user = User::where("id", $userId)->first();
 
-        return view("profile.index", compact("user"));
+        return view("user.index", compact("user"));
     }
 
     public function update(Request $request)
@@ -100,5 +100,23 @@ class AuthController extends Controller
         ]);
 
         return redirect()->back()->with('alert', 'Successfully update profile!');
+    }
+
+    public function customers()
+    {
+        $users = User::where("is_admin", "=", 0)->get();
+        return view("user.customers", compact("users"));
+    }
+
+    public function destroy($id)
+    {
+        $user = User::where("id", "=", $id);
+        $fileName = $user->first()->profile_photo;
+
+        $image = public_path('uploads/profile_photo/') . $fileName;
+        if (file_exists($image)) @unlink($image);
+
+        $user->delete();
+        return redirect()->back()->with("alert", "User has been deleted!");
     }
 }

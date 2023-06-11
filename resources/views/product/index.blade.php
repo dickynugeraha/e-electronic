@@ -36,23 +36,7 @@
         </ul>
       </div>
     </div>
-    
-    <!-- Modal Detail-->
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-          <!-- Modal content-->
-          <div class="modal-content">
-              <div class="modal-header">
-              </div>
-              <div class="modal-body">
-                {{$product->title}}
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-          </div>
-      </div>
-    </div>
+ 
     @endforeach
 
 

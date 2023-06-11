@@ -51,10 +51,12 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $userId = Session::get("userId");
+        $cart = Cart::where("user_id", "=", $userId);
+        $userCart = $cart->first();
+        $isAvailableProd = false;
 
-        $cart = Cart::where("user_id", $userId)->first();
 
-        if ($cart === null) {
+        if ($userCart === null) {
             $cart = Cart::create(["user_id" => $userId]);
             $cart->products()->attach([
                 $request->product_id => [
@@ -64,17 +66,30 @@ class CartController extends Controller
                 ]
             ]);
         } else {
-            $product = $cart->products()->first();
-            // dd($product->pivot->description);
-            $cart->products()->sync([
-                $request->product_id => [
-                    "description" => $request->description,
-                    "quantity" => $product->pivot->quantity += $request->quantity,
-                    "price_per_item" => $product->pivot->price_per_item += $request->price * $request->quantity
-                ]
-            ]);
-        }
+            $cartProds = $cart->with("products")->first();
+            foreach ($cartProds->products as $prod) {
+                if ($prod == $request->product_id) {
+                    $isAvailableProd = true;
 
+                    $userCart->products()->sync([
+                        $request->product_id => [
+                            "description" => $request->description,
+                            "quantity" => $prod->pivot->quantity += $request->quantity,
+                            "price_per_item" => $prod->pivot->price_per_item += $request->price * $request->quantity
+                        ]
+                    ]);
+                }
+            }
+            if (!$isAvailableProd) {
+                $userCart->products()->attach([
+                    $request->product_id => [
+                        "quantity" => $request->quantity,
+                        "description" => $request->description,
+                        "price_per_item" => ($request->price * $request->quantity)
+                    ]
+                ]);
+            }
+        }
 
         return redirect()->back()->with('alert', 'Successfully update or create cart product!');
     }

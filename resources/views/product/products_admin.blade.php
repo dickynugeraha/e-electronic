@@ -1,7 +1,7 @@
 @extends('layouts.admin_view', ["title" => "Products"])
 @section("content_admin")
 <h3 class="text-center my-3">PRODUCTS</h3>
-<div class="row mb-4">
+<div class="mb-4">
   <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddProduct" style="text-decoration:none"><i class="fa fa-plus me-2"></i> Add product</a>
 </div>
  <script>
@@ -36,13 +36,11 @@
               </div>
               <div class="mb-2">
                   <label for="price" class="form-label">Price</label>
-                  <input type="text" name="price" id="price" class="form-control" required>
+                  <input type="number" name="price" id="price" class="form-control" required>
               </div>
               <div class="mb-2">
                   <label for="description" class="form-label d-block">Description</label>
-                  <textarea id="description" name="description" class="form-control" >
-                    
-                  </textarea>
+                  <textarea id="description" name="description" class="form-control" cols="30" rows="8"></textarea>
               </div>
               <div class="mb-2">
                 <label for="product_photo" class="form-label">Image</label>
@@ -63,12 +61,12 @@
         <tr>
           <th>No</th>
           <th>Title</th>
+          <th>Image</th>
           <th>Price</th>
           <th>Type</th>
           <th>Description</th>
-          <th>Image</th>
           <th>Is Available</th>
-          <th>Action</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <?php $nomor = 1; ?>
@@ -77,14 +75,17 @@
           <tr>
             <td>{{$nomor}}</td>
             <td>{{$product->title}}</td>
+            <td>
+              <img style="border-radius: 50%" width="120px" height="120px" src="/uploads/product_photo/{{$product->product_photo}}" alt="Photo product" srcset="">
+            </td>
             <td>{{number_format($product->price,0,',','.')}}</td>
             <td>{{$product->type}}</td>
             <td>{{$product->description}}</td>
+            <td>{{$product->is_available === 1 ? "Ready stock" : "Out off stock"}}</td>
             <td>
-              <img width="120px" src="/uploads/product_photo/{{$product->product_photo}}" alt="Photo product" srcset="">
+              <a class="text-decoration-none me-2" href="/"> Edit</a>
+              <a class="text-decoration-none" href="/product/{{$product->id}}/delete"> Delete</a>
             </td>
-            <td>{{$product->is_available}}</td>
-            <td>{{$product->is_available}}</td>
           </tr>
         <?php $nomor++ ?>
         <!-- Modal Detail-->

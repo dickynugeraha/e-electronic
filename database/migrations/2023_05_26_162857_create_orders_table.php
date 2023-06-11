@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string("status")->default("process");
+            $table->string("status")->default("required_payment");
             $table->string("payment_photo")->nullable();
             $table->double("total_amount", 12, 2);
             $table->bigInteger("user_id")->unsigned();

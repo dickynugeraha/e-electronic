@@ -56,6 +56,11 @@ Route::get("orders", [OrderController::class, "index"]);
 Route::get("order/{order_id}", [OrderController::class, "show"]);
 Route::post("order/upload_foto_payment", [OrderController::class, "uploadProofPayment"]);
 // admin
-Route::get("admin/products", [ProductController::class, "index_admin"]);
+Route::get("admin/products", [ProductController::class, "indexAdmin"]);
+Route::get("product/{prodId}/delete", [ProductController::class, "destroy"]);
 Route::apiResource("shipping", ShippingController::class);
 Route::get("admin/shippings", [ShippingController::class, "index"]);
+Route::get("admin/customers", [AuthController::class, "customers"]);
+Route::get("user/{id}/delete", [AuthController::class, "destroy"]);
+Route::get("orders/{status}", [OrderController::class, "showByStatus"]);
+Route::get("order/{orderId}/{userId}", [OrderController::class, "showOrderByUser"]);

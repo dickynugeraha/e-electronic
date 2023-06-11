@@ -1,7 +1,7 @@
 @extends('layouts.user_view', ["title" => "Keranjang"])
 @section("content_user")
     <div class="row">
-        <div class="card col-md-8" style="padding: 0">
+        <div class="card col-md-8" style="padding: 0;">
             <script>
                 var msg = '{{Session::get('alert')}}';
                 var exist = '{{Session::has('alert')}}';
@@ -10,7 +10,10 @@
                 }
               </script>
             <?php $totalAmount = 0; ?>
-            <div class="card-header"><h5>YOUR CART ({{ count($cart_items) > 0 ? count($cart_items) : ""}})</h5></div>
+            <div class="card-header">
+                <h5>YOUR CART ({{ count($cart_items) > 0 ? count($cart_items) : ""}})</h5>
+            </div>
+            <div style="max-height:24rem; overflow-x: hidden;">
             @foreach ($cart_items as $product)
                 <div class="card-body row py-3">
                     <div class="col-lg-2 text-center">
@@ -64,6 +67,7 @@
                     </div>
                 </div>
             @endforeach
+            </div>
             <div class="d-flex justify-content-between p-3">
                 <h5>Total Amount</h5>
                 <h5 style="font-size: 1.3rem;color: #609966; font-weight: bold; font-style: italic">Rp. {{number_format($totalAmount,0,',','.')}}</h5>

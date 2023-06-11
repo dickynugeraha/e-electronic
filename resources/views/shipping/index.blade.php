@@ -1,7 +1,7 @@
 @extends('layouts.admin_view', ["title" => "Shippings"])
 @section("content_admin")
 <h3 class="text-center my-3">SHIPPINGS</h3>
-<div class="row mb-4">
+<div class="mb-4">
   <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddProduct" style="text-decoration:none"><i class="fa fa-plus me-2"></i> Add shipping</a>
 </div>
  <script>
@@ -61,7 +61,10 @@
             <td>{{$shipping->area}}</td>
             <td>Rp. {{number_format($shipping->price,0,',','.')}}</td>
             <td>{{$shipping->estimated_arrival}}</td>
-            <td>{{$shipping->is_available}}</td>
+            <td>
+              <a href="#" class="text-decoration-none me-2">Edit</a>
+              <a href="#" class="text-decoration-none">Delete</a>
+            </td>
           </tr>
         <?php $nomor++ ?>
         <!-- Modal Detail-->

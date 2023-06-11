@@ -59,7 +59,7 @@ class OrderController extends Controller
             "shipping_id" => $request->shipping,
         ]);
 
-        $cart = Cart::where("user_id", $userId);
+        $cart = Cart::where("user_id", "=", $userId);
         $products = $cart->with("products")->first()->products;
         foreach ($products as $product) {
             $order->products()->attach([
@@ -121,6 +121,22 @@ class OrderController extends Controller
             return view("order.detail", compact("order"));
         }
         return view("order.detail", compact("order"));
+    }
+
+    public function showByStatus($status)
+    {
+        $orders = Order::where("status", "=", $status)->with(["products", "user"])->get();
+        return view("order.status", compact("orders", "status"));
+    }
+
+    public function showOrderByUser($orderId, $userId)
+    {
+        $order = Order::where("id", "=", $orderId)
+            ->where("user_id", "=", $userId)
+            ->with("products")
+            ->first();
+
+        return view("order.detail_user", compact("order"));
     }
 
     /**

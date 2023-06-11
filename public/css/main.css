@@ -34,3 +34,7 @@ label {
     color: grey;
     font-style: italic;
 }
+
+.nav-admin:hover {
+    background-color: lightgrey;
+}

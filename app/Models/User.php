@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
         'address',
         "profile_photo",
+        "is_admin",
         'id_card_number'
     ];
 
