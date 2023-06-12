@@ -13,7 +13,7 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <h5>DETAIL ORDER</h5>
-                    <div>Order {{$order->status}}</div>
+                    <div>Order {{str_replace("_"," ", $order->status);}}</div>
                 </div>
             </div>
             <div class="card-body p-0">
@@ -21,7 +21,7 @@
                     <div class="mb-3">
                         <p class="fs-4">Payment</p>
                         <div class="row">
-                            @if ($order->payment_photo == null)
+                            @if ($order->payment_photo == null || $order->status == "required_payment")
                             <div class="col-md-6">
                                 <p class="fs-6 mb-0" style="color:grey">Make payments through the following platforms</p>
                                 <ol style="color:grey">
@@ -48,9 +48,13 @@
                                 {{-- <p style="color: red; font-style:italic" class="text-start">No photo, please make payment!</p> --}}
                             </div>
                             @else
-                            <div class="col-12 text-center">
-                                <img src="/uploads/payment_photo/{{ $order->payment_photo }}" alt="payment_photo" srcset="" style="width: 12rem">
-                            </div>
+                                @if ($order->status != "cancel" )
+                                    <div class="col-12 text-center">
+                                        <img src="/uploads/payment_photo/{{ $order->payment_photo }}" alt="payment_photo" srcset="" style="width: 12rem">
+                                    </div>
+                                @else
+                                    <p class="fst-italic fs-5 text-left" style="color:red">Order canceled!</p>
+                                @endif
                             @endif
                         </div>
                     </div>
@@ -64,7 +68,7 @@
                     @foreach ($order->products as $product)
                         <li class="row">
                             <div class="col-md-4 text-center">
-                                <img style="width:8rem; height:8rem; border-radius:50%" src="/uploads/product_photo/{{ $product->product_photo }}" alt="" srcset="">
+                                <img style="width:8rem; height:8rem; border-radius:10%" src="/uploads/product_photo/{{ $product->product_photo }}" alt="" srcset="">
                             </div>
                             <div class="col-md-8 px-4">
                                 <p class="fs-4" style="margin-bottom: 0">{{ $product->title }}</p>

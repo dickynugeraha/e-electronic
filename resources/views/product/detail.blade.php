@@ -12,7 +12,7 @@
       }
     </script>
     <div class="container mt-2">
-        <div class="row r3">
+        <div class="row r3 align-items-start">
             <div class="col-md-5 p-0">
                 <ul>
                   <?php $descriptions = explode("|", $product->description) ?>
@@ -41,7 +41,9 @@
                   </form>
                 </div>
             </div>
-            <div class="col-md-7 text-center"> <img src="/uploads/product_photo/{{ $product->product_photo }}" width="60%" height="80%"> </div>
+            <div class="col-md-7 text-center">
+              <img src="/uploads/product_photo/{{ $product->product_photo }}" width="60%" height="80%">
+            </div>
         </div>
     </div>
 </div>

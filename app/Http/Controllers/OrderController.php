@@ -16,10 +16,17 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $userId = Session::get("userId");
+        $status = $request->get("status");
         $orders = Order::where("user_id", "=", $userId)->with("products")->get();
+
+        if ($status != "" && $status != "all") {
+            $orders = Order::where("user_id", "=", $userId)
+                ->where("status", "=", $status)
+                ->with("products")->get();
+        }
 
         if (count($orders) === 0) {
             $orders = [];
@@ -28,6 +35,7 @@ class OrderController extends Controller
 
         return view("order.index", compact("orders"));
     }
+
 
     /**
      * Show the form for creating a new resource.

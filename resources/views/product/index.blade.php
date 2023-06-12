@@ -4,16 +4,17 @@
     <div class="dropdown ms-auto mr-0 mb-3">
       <form action="" class="d-flex align-items-center">
         <div class="me-3">
-          <label for="type">Filter berdasarkan:</label>
+          <label for="type">Show product by:</label>
         </div>
         <div>
-          <select id="type" class="form-select" name="Tipe">
+          <select id="type" class="form-select" name="type">
             <option value="all">All</option>
             <option value="electronic">Electronic</option>
             <option value="kitchen">Kitchen</option>
             <option value="furniture">Furniture</option>
           </select>
         </div>
+        <button type="submit" class="btn btn-sm btn-primary ms-3">Filter</button>
       </form>
     </div>
     <div class="row">

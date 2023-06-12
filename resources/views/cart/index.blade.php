@@ -17,7 +17,7 @@
             @foreach ($cart_items as $product)
                 <div class="card-body row py-3">
                     <div class="col-lg-2 text-center">
-                        <img src="/uploads/product_photo/{{$product->product_photo}}" style="width: 8rem; height: 8rem; border-radius: 50%;" alt="" srcset="">
+                        <img src="/uploads/product_photo/{{$product->product_photo}}" style="width: 8rem; height: 8rem; border-radius: 10%;" alt="" srcset="">
                     </div>
                     <div class="col-lg-7 ps-lg-5 pt-3 pt-lg-0">
                         <p class="mb-1"><b>Title: </b> {{$product->title}}</p>
@@ -52,7 +52,7 @@
                                     <input type="number" name="quantity" id="quantity" class="form-control" value="{{$product->pivot->quantity}}">
                                 </div>
                                 <div class="mb-2">
-                                    <label for="description" class="form-label">Quantity</label>
+                                    <label for="description" class="form-label">Description</label>
                                     <input type="text" name="description" id="description" class="form-control" value="{{$product->pivot->description}}">
                                 </div>
                                 <input type="hidden" name="price" value="{{$product->price}}">

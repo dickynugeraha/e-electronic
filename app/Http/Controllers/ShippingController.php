@@ -77,7 +77,14 @@ class ShippingController extends Controller
      */
     public function update(Request $request, Shipping $shipping)
     {
-        //
+        $shipping = Shipping::where("id", "=", $request->shipping_id);
+        $shipping->update([
+            "area" => $request->area,
+            "price" => $request->price,
+            "estimated_arrival" => $request->estimated_arrival
+        ]);
+
+        return redirect()->back()->with('alert', 'Successfully update shipping!');
     }
 
     /**
@@ -86,8 +93,10 @@ class ShippingController extends Controller
      * @param  \App\Models\Shipping  $shipping
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shipping $shipping)
+    public function destroy($id)
     {
-        //
+        Shipping::where("id", "=", $id)->delete();
+
+        return redirect()->back()->with('alert', 'Shipping deleted!');
     }
 }

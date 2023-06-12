@@ -18,14 +18,21 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $userId = Session::get("userId");
         if (!$userId) {
             return redirect("/login");
         }
 
-        $products = Product::all();
+        $type = $request->get("type");
+        $products = Product::where("is_available", "=", "1")->get();
+
+        if ($type != "" && $type != "all") {
+            $products = Product::where("type", "=", $type)
+                ->where("is_available", "=", "1")
+                ->get();
+        }
 
         return view("product.index", compact("products"));
     }
@@ -82,10 +89,27 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        return view("product.detail")->with('product', $product);;
+        $product = Product::where("id", "=", $id)->first();
+
+        return view("product.detail", compact("product"));
     }
+
+    // public function showByType(Request $request)
+    // {
+    //     $type = $request->get("type");
+
+    //     $products = Product::where("type", "=", $type)
+    //         ->where("is_available", "=", "1")
+    //         ->get();
+
+    //     if ($type == "all") {
+    //         $products = Product::where("is_available", "=", "1")->get();
+    //     }
+
+    //     return view("product.index", compact("products"));
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -105,9 +129,34 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request)
     {
-        //
+        $product = Product::where("id", "=", $request->product_id);
+        $image = $request->file('product_photo');
+        $image_name = "";
+
+        if ($request->product_photo != null) {
+            $image_name = time() . "." . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/uploads/product_photo');
+            $image->move($destinationPath, $image_name);
+
+            $old_image = $product->first()->product_photo;
+            $image = public_path('uploads/product_photo/') . $old_image;
+            if (file_exists($image)) @unlink($image);
+        } else {
+            $image_name = $product->first()->product_photo;
+        }
+
+        $product->update([
+            "title" => $request->title,
+            "type" => $request->type,
+            "description" => $request->description,
+            "price" => $request->price,
+            "product_photo" => $image_name,
+            "is_available" => $request->is_available,
+        ]);
+
+        return redirect()->back()->with('alert', 'Successfully updated product!');
     }
 
     /**
