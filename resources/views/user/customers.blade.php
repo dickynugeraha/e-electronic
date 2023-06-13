@@ -32,7 +32,7 @@
             <td>{{$nomor}}</td>
             <td>{{$user->name}}</td>
             <td>
-              <img width="120px"  style="border-radius: 10%" src="/uploads/profile_photo/{{$user->profile_photo}}" alt="" srcset="">
+              <img width="120px" class="rounded" src="/uploads/profile_photo/{{$user->profile_photo}}" alt="" srcset="">
             </td>
             <td>{{$user->email}}</td>
             <td>{{$user->address}}</td>

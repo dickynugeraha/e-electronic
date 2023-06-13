@@ -18,6 +18,9 @@
       </form>
     </div>
     <div class="row">
+      @if (count($products) == 0)
+      <p class="fs-5" style="color:red; font-style:italic;">No products found..</p>
+      @endif
     @foreach ($products as $product)
     <div class="col-6 col-lg-3 col-md-4 col-sm-6 mt-3 mt-lg-0">
       <div class="card" >
@@ -37,10 +40,7 @@
         </ul>
       </div>
     </div>
- 
     @endforeach
-
-
   </div>
 
 @endsection

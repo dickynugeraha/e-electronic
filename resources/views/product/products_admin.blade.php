@@ -76,7 +76,7 @@
             <td>{{$nomor}}</td>
             <td>{{$product->title}}</td>
             <td>
-              <img style="border-radius: 10%" width="120px" height="120px" src="/uploads/product_photo/{{$product->product_photo}}" alt="Photo product" srcset="">
+              <img class="rounded" width="120px" height="120px" src="/uploads/product_photo/{{$product->product_photo}}" alt="Photo product" srcset="">
             </td>
             <td>Rp. {{number_format($product->price,0,',','.')}}</td>
             <td>{{$product->type}}</td>

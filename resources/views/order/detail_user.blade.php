@@ -28,7 +28,7 @@
               <div class="mb-1">
                 <div class="row">
                   <div class="me-3 col-3">
-                    <img width="100px" style="border-radius:20%" src="/uploads/product_photo/{{$product->product_photo}}" alt="" srcset="">
+                    <img width="100px" class="rounded" src="/uploads/product_photo/{{$product->product_photo}}" alt="" srcset="">
                   </div>
                   <div class="col-6">
                     <p class="fs-4 mb-1">{{$product->title}} <span class="fst-italic" style="color: grey; font-size:1rem;"> ( x{{$product->pivot->quantity}})</span></p>

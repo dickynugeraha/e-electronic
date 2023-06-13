@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="col-md-7 text-center">
-              <img src="/uploads/product_photo/{{ $product->product_photo }}" width="60%" height="80%">
+              <img class="rounded" src="/uploads/product_photo/{{ $product->product_photo }}" width="60%" height="80%">
             </div>
         </div>
     </div>
