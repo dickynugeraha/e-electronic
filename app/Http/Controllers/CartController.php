@@ -56,7 +56,7 @@ class CartController extends Controller
         $isAvailableProd = false;
 
 
-        if ($userCart === null) {
+        if ($userCart == null) {
             $cart = Cart::create(["user_id" => $userId]);
             $cart->products()->attach([
                 $request->product_id => [
@@ -68,9 +68,8 @@ class CartController extends Controller
         } else {
             $cartProds = $cart->with("products")->first();
             foreach ($cartProds->products as $prod) {
-                if ($prod == $request->product_id) {
+                if ($prod->id == $request->product_id) {
                     $isAvailableProd = true;
-
                     $userCart->products()->sync([
                         $request->product_id => [
                             "description" => $request->description,
