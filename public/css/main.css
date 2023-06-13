@@ -38,3 +38,11 @@ label {
 .nav-admin:hover {
     background-color: lightgrey;
 }
+
+.user-products {
+    transition: transform 0.2s;
+}
+
+.user-products:hover {
+    transform: scale(1.1);
+}
