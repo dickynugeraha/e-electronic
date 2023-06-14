@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use App\Models\Shipping;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -52,6 +53,7 @@ class CartController extends Controller
     {
         $userId = Session::get("userId");
         $cart = Cart::where("user_id", "=", $userId);
+        $product = Product::where("id", "=", $request->product_id)->first();
         $userCart = $cart->first();
         $isAvailableProd = false;
 
@@ -70,13 +72,21 @@ class CartController extends Controller
             foreach ($cartProds->products as $prod) {
                 if ($prod->id == $request->product_id) {
                     $isAvailableProd = true;
-                    $userCart->products()->sync([
-                        $request->product_id => [
+                    $userCart->products()->updateExistingPivot(
+                        $product,
+                        [
                             "description" => $request->description,
                             "quantity" => $prod->pivot->quantity += $request->quantity,
                             "price_per_item" => $prod->pivot->price_per_item += $request->price * $request->quantity
-                        ]
-                    ]);
+                        ],
+                    );
+                    // $userCart->products()->sync([
+                    //     $request->product_id => [
+                    //         "description" => $request->description,
+                    //         "quantity" => $prod->pivot->quantity += $request->quantity,
+                    //         "price_per_item" => $prod->pivot->price_per_item += $request->price * $request->quantity
+                    //     ]
+                    // ]);
                 }
             }
             if (!$isAvailableProd) {
@@ -126,14 +136,16 @@ class CartController extends Controller
     {
         $userId = Session::get("userId");
         $cart = Cart::where("user_id", $userId)->first();
+        $product = Product::where("id", "=", $request->product_id)->first();
 
-        $cart->products()->sync([
-            $request->product_id => [
+        $cart->products()->updateExistingPivot(
+            $product,
+            [
                 "description" => $request->description,
                 "quantity" => $request->quantity,
                 "price_per_item" => $request->price * $request->quantity
-            ]
-        ]);
+            ],
+        );
 
         return redirect()->back()->with('alert', 'Successfully update cart product!');
     }
