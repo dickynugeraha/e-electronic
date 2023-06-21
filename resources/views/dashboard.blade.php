@@ -343,7 +343,7 @@
                                     <!-- Project details-->
                                     <h2 class="text-uppercase">Speaker</h2>
                                     <p class="item-intro text-muted">Powerfull sound.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/.jpg" alt="..." />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/speaker.jpg" alt="..." />
                                     <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                                     <ul class="list-inline">
                                         <li>
