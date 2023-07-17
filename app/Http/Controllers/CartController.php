@@ -57,7 +57,6 @@ class CartController extends Controller
         $userCart = $cart->first();
         $isAvailableProd = false;
 
-
         if ($userCart == null) {
             $cart = Cart::create(["user_id" => $userId]);
             $cart->products()->attach([
@@ -80,13 +79,6 @@ class CartController extends Controller
                             "price_per_item" => $prod->pivot->price_per_item += $request->price * $request->quantity
                         ],
                     );
-                    // $userCart->products()->sync([
-                    //     $request->product_id => [
-                    //         "description" => $request->description,
-                    //         "quantity" => $prod->pivot->quantity += $request->quantity,
-                    //         "price_per_item" => $prod->pivot->price_per_item += $request->price * $request->quantity
-                    //     ]
-                    // ]);
                 }
             }
             if (!$isAvailableProd) {
