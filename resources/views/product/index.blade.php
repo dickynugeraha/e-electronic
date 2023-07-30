@@ -23,7 +23,7 @@
       @endif
     @foreach ($products as $product)
     <div class="col-6 col-lg-3 col-md-4 col-sm-6 mt-3 mt-lg-0 user-products">
-      <div class="card" >
+      <div class="card mb-3" >
         <div class="card-header fs-4">
           <h5>{{ucfirst($product->title)}}</h5>
         </div>
