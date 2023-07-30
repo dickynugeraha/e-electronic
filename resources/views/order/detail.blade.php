@@ -25,9 +25,9 @@
                             <div class="col-md-6">
                                 <p class="fs-6 mb-0" style="color:grey">Make payments through the following platforms</p>
                                 <ol style="color:grey">
-                                    <li>Transfer bank : BCA (9234619264301) - Kale Pramono</li>
-                                    <li>OVO : (084619264301) - Kale Pramono</li>
-                                    <li>Gopay : (084619264301) - Kale Pramono</li>
+                                    <li>Transfer bank : BCA (9234619264301) - Fakhri Aqil Hidayat</li>
+                                    <li>OVO : (084619264301) - Fakhri Aqil Hidayat</li>
+                                    <li>Gopay : (084619264301) - Fakhri Aqil Hidayat</li>
                                 </ol>
                             </div>
                             <div class="col-md-6">

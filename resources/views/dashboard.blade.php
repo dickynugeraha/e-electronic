@@ -179,19 +179,7 @@
                 </div>
             </div>
         </section>
-        <!-- Clients-->
-        <div class="py-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg" alt="..." aria-label="Google Logo" /></a>
-                    </div>
-                    <div class="col-md-6 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg" alt="..." aria-label="Facebook Logo" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
         <!-- Contact-->
         <section class="page-section" id="contact">
             <div class="container">
@@ -259,12 +247,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Ari</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Fakhri Aqil Hidayat</div>
                 </div>
             </div>
         </footer>
@@ -282,7 +265,7 @@
                                     <h2 class="text-uppercase">Washing Machine</h2>
                                     <p class="item-intro text-muted">Available grey and white color.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/mesin-cuci.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <p>Dapatkan pakaian yang bersih dan segar dengan mesin cuci berkualitas tinggi ini. Dengan fitur-fitur terbaik seperti sistem penghilangan noda yang kuat, opsi pengaturan suhu yang dapat disesuaikan, dan program pencucian yang dirancang khusus untuk berbagai jenis kain, Anda dapat yakin bahwa cucian Anda akan terawat dengan baik. Jadikan momen mencuci lebih mudah dan menyenangkan dengan mesin cuci modern kami. Dengan desain yang elegan dan antarmuka yang intuitif, Anda dapat dengan mudah mengoperasikan mesin ini. Fitur hemat air dan energi juga memberikan keunggulan tambahan dalam menjaga lingkungan dan menghemat biaya.</p>
                                     <ul class="list-inline">
                                         <li>
                                             <strong>Category:</strong>
@@ -313,7 +296,7 @@
                                     <h2 class="text-uppercase">Television</h2>
                                     <p class="item-intro text-muted">Many variants and sizes available.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/television.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <p>Jadikan rumah Anda sebagai bioskop pribadi dengan televisi kami yang memiliki ukuran layar besar dan kualitas gambar yang memukau. Nikmati pengalaman menonton yang mendalam dan kenyamanan tak tertandingi. Dengan berbagai opsi konektivitas yang tersedia, televisi kami memberi Anda kebebasan untuk menonton konten dari berbagai sumber, mulai dari stasiun TV tradisional hingga platform streaming populer, semuanya dalam satu perangkat yang elegan.</p>
                                     <ul class="list-inline">
                                         <li>
                                             <strong>Category:</strong>
@@ -344,7 +327,7 @@
                                     <h2 class="text-uppercase">Speaker</h2>
                                     <p class="item-intro text-muted">Powerfull sound.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/speaker.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <p>Kreasikan ruang Anda dengan speaker desain modern kami yang tidak hanya menghasilkan suara berkualitas, tetapi juga menjadi pernyataan gaya. Jadikan setiap pesta lebih hidup dengan speaker kuat kami yang menghadirkan bass yang dalam dan suara yang mengguncang.</p>
                                     <ul class="list-inline">
                                         <li>
                                             <strong>Category:</strong>
@@ -375,7 +358,7 @@
                                     <h2 class="text-uppercase">Mixer</h2>
                                     <p class="item-intro text-muted">Sharp blade.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/blender.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <p>Jadikan pekerjaan dapur lebih menyenangkan dengan mixer kami yang mudah digunakan dan mudah dibersihkan. Dengan desain yang elegan dan fungsionalitas yang unggul, mixer ini adalah pilihan yang tepat untuk Anda. Mixer kami menghadirkan harmoni sempurna antara kekuatan dan keindahan. Dengan desain yang elegan dan fungsionalitas yang tak tertandingi, ini adalah asisten dapur yang Anda butuhkan.</p>
                                     <ul class="list-inline">
                                         <li>
                                             <strong>Category:</strong>
@@ -406,7 +389,7 @@
                                     <h2 class="text-uppercase">Laptop</h2>
                                     <p class="item-intro text-muted">Gaming type and so on.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/5.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <p>Tingkatkan gaya hidup digital Anda dengan laptop trendy kami, yang dilengkapi dengan fitur-fitur terbaru dan desain yang mengesankan. Menonjollah di antara kerumunan dengan perangkat keren ini. Investasikan dalam masa depan Anda dengan laptop premium kami. Dibangun dengan bahan berkualitas tinggi dan fitur-fitur terbaik, laptop kami akan menjadi mitra setia Anda dalam mencapai kesuksesan.</p>
                                     <ul class="list-inline">
                                         <li>
                                             <strong>Category:</strong>
@@ -437,7 +420,7 @@
                                     <h2 class="text-uppercase">Camera</h2>
                                     <p class="item-intro text-muted">Available more type.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/camera.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <p>Jangan biarkan momen berlalu begitu saja. Tangkap setiap detail dengan kejelasan yang menakjubkan. Dapatkan kamera kami yang terpercaya dan hadirkan kehidupan Anda dalam gambar yang nyata. Dengan kamera kami, Anda akan membuka pintu menuju dunia kreativitas yang tak terbatas. Tangkap keindahan dengan presisi yang luar biasa dan bagikan kisah Anda dengan seluruh dunia.</p>
                                     <ul class="list-inline">
                                         <li>
                                             <strong>Category:</strong>
