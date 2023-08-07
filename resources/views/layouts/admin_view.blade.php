@@ -2,14 +2,14 @@
 <html lang="en">
     <head>
         @include('layouts.partials.header_script')
-        <title>{{ $title ?? "e-electronic" }}</title>
+        <title>{{ $title ?? "e-electronic ari" }}</title>
     </head>
     <body>
         <header
             class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
         >
             <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"
-                >E - Electronic</a
+                >E - Electronic Ari</a
             >
             <button
                 class="navbar-toggler d-md-none collapsed"

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark py-3" data-bs-theme="dark">
   <div class="container">
-    <a class="fs-4" href="/" style="text-decoration:none;color: #ffc800; background-color:transparent; letter-spacing: 2px">E-ELECTRONIC</a>
+    <a class="fs-4" href="/" style="text-decoration:none;color: #ffc800; background-color:transparent; letter-spacing: 2px">E-ELECTRONIC ARI</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

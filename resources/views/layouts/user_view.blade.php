@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   @include('layouts.partials.header_script')
-  <title>{{$title ?? "e-electronic"}}</title>
+  <title>{{$title ?? "e-electronic ari"}}</title>
 </head>
 <body>
   @include('layouts.partials.header_user')
