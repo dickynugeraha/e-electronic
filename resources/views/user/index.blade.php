@@ -50,7 +50,7 @@
                   </div>
                   <div class="mb-2">
                       <label for="age" class="form-label" style="color:grey; font-style:italic;">Age</label>
-                      <input type="number" name="age" id="age" class="form-control" value="{{$user->age}}">
+                      <input type="number" min="17" name="age" id="age" class="form-control" value="{{$user->age}}">
                   </div>
                   <div class="mb-2">
                       <label for="id_card_number" class="form-label" style="color:grey; font-style:italic;">KTP Number</label>
