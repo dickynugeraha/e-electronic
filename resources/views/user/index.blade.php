@@ -54,7 +54,7 @@
                   </div>
                   <div class="mb-2">
                       <label for="id_card_number" class="form-label" style="color:grey; font-style:italic;">KTP Number</label>
-                      <input type="number" name="id_card_number" id="id_card_number" class="form-control" value="{{$user->id_card_number}}">
+                      <input type="number" min="1" name="id_card_number" id="id_card_number" class="form-control" value="{{$user->id_card_number}}">
                   </div>
                   <div class="mb-2">
                       <label for="address" class="form-label" style="color:grey; font-style:italic;">Address</label>

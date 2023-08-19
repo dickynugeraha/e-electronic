@@ -65,7 +65,7 @@
                     <input type="text" name="address" id="address" tabindex="1" class="form-control" placeholder="Address" required>
                   </div>
                   <div class="form-group">
-                    <input type="number" name="age" id="age" tabindex="1" class="form-control" placeholder="Age" required>
+                    <input type="number" min="17" name="age" id="age" tabindex="1" class="form-control" placeholder="Age" required>
                   </div>
                   <div class="form-group">
                     <input type="number" name="id_card_number" id="id_card_number" tabindex="1" class="form-control" placeholder="ID Card Number " required>

@@ -27,11 +27,11 @@
               </div>
               <div class="mb-2">
                   <label for="price" class="form-label">Price</label>
-                  <input type="number" name="price" id="price" class="form-control" required>
+                  <input type="number" min="1" name="price" id="price" class="form-control" required>
               </div>
               <div class="mb-2">
                 <label for="estimated_arrival" class="form-label">Estimated Arrival (day)</label>
-                <input type="number" name="estimated_arrival" id="estimated_arrival" class="form-control" required>
+                <input type="number" min="1" max="15" name="estimated_arrival" id="estimated_arrival" class="form-control" required>
               </div>
           </div>
           <div class="modal-footer">
@@ -83,11 +83,11 @@
                       </div>
                       <div class="mb-2">
                           <label for="price" class="form-label">Price</label>
-                          <input type="number" name="price" id="price" class="form-control" value="{{$shipping->price}}" required>
+                          <input type="number" min="1" name="price" id="price" class="form-control" value="{{$shipping->price}}" required>
                       </div>
                       <div class="mb-2">
                         <label for="estimated_arrival" class="form-label">Estimated Arrival (day)</label>
-                        <input type="number" name="estimated_arrival" id="estimated_arrival" value="{{$shipping->estimated_arrival}}" class="form-control" required>
+                        <input type="number" min="1" max="15" name="estimated_arrival" id="estimated_arrival" value="{{$shipping->estimated_arrival}}" class="form-control" required>
                       </div>
                       <input type="hidden" name="shipping_id" value="{{$shipping->id}}">
                   </div>

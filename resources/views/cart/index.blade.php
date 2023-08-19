@@ -49,7 +49,7 @@
                             <div class="modal-body">
                                 <div class="mb-2">
                                     <label for="quantity" class="form-label">Quantity</label>
-                                    <input type="number" name="quantity" id="quantity" class="form-control" value="{{$product->pivot->quantity}}">
+                                    <input type="number" min="1" max="20" name="quantity" id="quantity" class="form-control" value="{{$product->pivot->quantity}}">
                                 </div>
                                 <div class="mb-2">
                                     <label for="description" class="form-label">Description</label>

@@ -26,7 +26,7 @@
                   <form action="/cart" method="post">
                     <div class="mb-3 text-start" style="width: 8rem">
                       <label class="form-label" for="quantity" style="color: grey; font-style: italic">Quantity</label>
-                      <input onchange="quantityChange()" id="quantity" type="number" class="form-control" name="quantity">
+                      <input onchange="quantityChange()" id="quantity" type="number" min="1" max="20" class="form-control" name="quantity">
                     </div>
                     <div class="mb-3 text-start">
                       <label class="form-label" for="quantity" style="color: grey; font-style: italic">Description Order</label>

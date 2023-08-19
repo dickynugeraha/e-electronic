@@ -36,7 +36,7 @@
               </div>
               <div class="mb-2">
                   <label for="price" class="form-label">Price</label>
-                  <input type="number" name="price" id="price" class="form-control" required>
+                  <input type="number" min="1" name="price" id="price" class="form-control" required>
               </div>
               <div class="mb-2">
                   <label for="description" class="form-label d-block">Description</label>
@@ -113,7 +113,7 @@
                       </div>
                       <div class="mb-2">
                           <label for="price" class="form-label">Price</label>
-                          <input type="number" name="price" id="price" class="form-control" value="{{$product->price}}" required>
+                          <input type="number" min="1" name="price" id="price" class="form-control" value="{{$product->price}}" required>
                       </div>
                       <div class="mb-2">
                           <label for="description" class="form-label d-block">Description</label>
